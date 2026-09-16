@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    
+    <title>手語辨識</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
+        integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="../static/css/style.css">
+    <script type="text/javascript" src="../static/js/event.js"> </script>
+</head>
+
+<body>
+
+    <div class="header">
+        <h1>Sign Language</h1>
+    </div>
+    
+    <div class="container">
+    
+        <div class="left">
+            
+            <div class="upload">
+                <h1>圖像預測</h1>
+                <form action="upload" method="post" enctype="multipart/form-data">
+                    <input type="file" multiple="" name="file[]" class="span2">
+                    <div class="span">
+                        <input type="submit" value="上傳" style="width: 80px; height: 30px;font-size: 15px;">
+                        <button type="button" onclick="post_data_image()" style="width: 80px; height: 30px;font-size: 15px;">手語翻譯</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="predict">
+                <h1>語意辨識</h1>
+                <input type="text" id="input_text" style="width: 98%; height: 20px;font-size: 15px;">
+                <button onclick="post_data_text()" style="width: 80px; height: 30px; font-size: 15px;">確認</button>
+                <div id="result_text"></div>
+            </div>
+
+        </div>
+        <div class="right"></div>
+    </div>
+
+</body>
+</html>

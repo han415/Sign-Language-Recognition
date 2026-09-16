@@ -1,0 +1,112 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    height: 100%;
+    background-color: #423a3a;
+}
+
+.header {
+    background-color: #ccc;
+    padding: 8px;
+}
+.header h1 {
+    text-align: center;
+    font-family: "IM Fell English", serif;
+    font-weight: bold; 
+    font-style: italic;
+    font-size: 250%; 
+    color: #423a3a; 
+}
+
+.container {
+    display: flex;
+    height: calc(100vh - 160px);
+}
+
+.left, .right {
+    width: 50%;/* 左右各占50% */
+    box-sizing: border-box;
+}
+
+.left {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #423a3a;/* 左半部分背景色 */
+    padding: 20px;
+}
+
+.upload,
+.predict {
+    margin: 0 auto;
+    width: 80%;
+    flex: 1;/* 均分高度 */
+    background: #ffffffbd;/* 背景色 */
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.upload h1, .predict h1 {
+    text-align: left;
+    font-family: "PMingLiU", Arial, sans-serif; 
+    font-size: 30px; 
+    font-weight: bold; 
+    color: #423a3a;
+}
+
+.form-inline {
+    display: flex;
+    align-items: center; /* 垂直居中 */
+    justify-content: center;/* 水平居中 */
+}
+
+.form-inline .button-group {
+    display: flex;
+    align-items: center;
+}
+
+.form-inline input[type="file"] {
+    margin-right: 10px;/*文件輸入和按鈕間距 */
+}
+
+.form-inline .button-group input[type="submit"],
+.form-inline .button-group button {
+    margin-left: 10px;/* 上傳和手語間距 */
+
+}
+
+span:hover {
+    padding: 10px 20px;
+    background-color: #495057;
+    color: black;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: "PMingLiU", Arial, sans-serif;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* 垂直居中 */
+}
+
+.span2 {
+    width: 300px; /* 设置宽度 */
+    height: 40px; /* 设置高度 */
+    font-family: "PMingLiU", Arial, sans-serif;
+    font-size: 20px; 
+}
+
+input[type="file"] {
+    margin-bottom: 30px;
+}
+
+.right {
+    background-image: url("pic.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
