@@ -69,7 +69,7 @@ def upload():
 @app.route("/predict_image",methods=[ "GET",'POST'])
 def predict_image():
   # model=load_model('sentence_base.h5')
-  model=load_model('W11/first_model.h5')
+  model = load_model('categorical_model.h5')
   result_str=[]
   mypath=r"C:\Users\clair\Desktop\AI2down2\W11\static\img"
   for files in walk(mypath):
