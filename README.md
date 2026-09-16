@@ -1,5 +1,4 @@
-# Sign-Language-Recognition & Sentiment Analysis
-基於 Flask 開發的全端 AI 系統，支援 CNN 手語圖片辨識、Googletrans 翻譯與 BERT 正負面語意情緒分析
+# Sign Language Recognition & Sentiment Analysis
 
 全端手語影像辨識與自然語言情緒分析系統
 **Full-Stack Sign Language Recognition and Sentiment Analysis System using CNN and BERT**
@@ -24,22 +23,22 @@
 
 *(註：因模型權重檔超出 GitHub 容量限制，已將兩個核心模型分別開源發布至 Hugging Face Model Hub。)*
 
- **[ CNN 手語辨識模型 (categorical_model.h5) - Hugging Face](https://huggingface.co/han415/Sign-Language-Models)**
- **[ BERT 正負評語言模型 (bert_chinese_model) - Hugging Face](https://huggingface.co/han415/Sign-Language-Models)**
+👉 **[🔗 CNN 手語辨識模型 (categorical_model.h5) - Hugging Face](https://huggingface.co/你的帳號名稱/Sign-Language-Models)**
+👉 **[🔗 BERT 正負評語言模型 (bert_chinese_model) - Hugging Face](https://huggingface.co/你的帳號名稱/Sign-Language-Models)**
 
 ---
 
 ## 專題成果展示
 
-###  網頁實機操作與系統演示 (YouTube)
+### 🎥 網頁實機操作與系統演示 (YouTube)
 點擊下方圖片即可觀看完整的系統操作影片，包含手語圖片上傳、即時辨識、翻譯與情緒分析結果展示：
 
-[![Web UI Demo Video](https://img.youtube.com/vi/jHTMCEvQBkA/0.jpg)](https://youtu.be/jHTMCEvQBkA)
+[![Web UI Demo Video](https://img.youtube.com/vi/YOUR_VIDEO_ID/0.jpg)](https://www.youtube.com/watch?v=YOUR_VIDEO_ID)
 
 *(實機操作介面截圖)*
-![網頁介面展示](./img/ui_demo.png)
+![網頁介面展示](./Img/ui_demo.png)
 
-###  [專題完整簡報 (Presentation PDF)](./Presentation.pdf)
+### 📄 [專題完整簡報 (Presentation PDF)](./Sign_Langusge_期末_(1)_2.pdf)
 
 ---
 
@@ -53,7 +52,7 @@
 
 本系統將前端介面、影像辨識模型與語言分析模型進行無縫整合：
 
-![系統流程架構圖](./img/architecture.png)
+![系統流程架構圖](./Img/architecture.png)
 
 1. **使用者上傳檔案**：透過 Web 介面選擇手語圖片。
 2. **調用影像模型**：後端 Flask 接收影像後，送入訓練好的 CNN 模型進行特徵萃取與類別預測。
@@ -67,18 +66,27 @@
 本專案涵蓋兩種不同領域的機器學習模型訓練與調校：
 
 ### 1. 電腦視覺：手語分類模型 (CNN)
-* **資料來源**：[Kaggle American Sign Language Dataset](https://www.kaggle.com/datasets/ayuraj/asl-dataset)
+* **資料來源**：[Kaggle American Sign Language Dataset](https://www.kaggle.com/datasets/ayuraj/american-sign-language-dataset)
 * **資料規模**：共 36 個類別（數字 0-9 與英文字母 a-z），總計 2515 張圖片。
 * **資料前處理**：依 80% / 20% 比例切分為訓練集與測試集，並透過 `ImageDataGenerator` 進行資料擴增 (Data Augmentation) 如旋轉、平移與水平翻轉。
 * **模型架構**：建立深度卷積神經網路 (CNN)，包含兩層 `Conv2D` + `MaxPooling2D`，並使用 `Dropout` 防止過擬合。最終全連接層使用 Softmax 輸出 36 種機率分佈。
 * **測試準確率**：經過 300 Epochs 訓練，最終模型 (`categorical_model.h5`) 準確率高達 **92.8%**。
 
-![手語資料集示意圖](./img/dataset.png)
+![手語資料集示意圖](./Img/dataset.png)
 
 ### 2. 自然語言處理：正負評分類模型 (BERT)
 * **資料收集與前處理**：利用 Selenium 撰寫自動化爬蟲，擷取 2098 則真實評論資料進行訓練，並建立正向 (`positive.txt`) 與負向 (`negative.txt`) 語意字典檔。
 * **模型架構**：採用 Hugging Face 的 `bert-base-chinese` 預訓練模型進行序列分類微調 (Sequence Classification Fine-tuning)。
 * **推論邏輯**：藉由 PyTorch 將輸入文本轉為 Tensor，利用微調後的 BERT 提取語意特徵並進行 Argmax 分類，準確預測辭彙的情感傾向。雲端模型庫中包含權重檔 `model.safetensors` 與架構檔 `config.json`。
+
+---
+
+## 未來發展
+
+* **擴充為即時動態影像辨識 (Real-time Inference)**：從目前的「靜態圖片上傳」升級為「動態影像即時串流辨識」，結合 WebRTC 或 OpenCV 即時捕捉使用者的連續手語動作。
+* **細緻化情緒分析 (Fine-grained Sentiment Analysis)**：將 NLP 模型目前的「正/負評」二元分類，進階為多維度情緒辨識（如：快樂、悲傷、驚訝等），使語意分析更貼近人類真實情感。
+* **擴增手語詞彙庫**：目前影像資料集以字母與數字為主，未來計畫引入常見的「單字與短句」手語資料集，提升系統在日常情境下的實用性。
+* **系統雲端部署 (Cloud Deployment)**：將整個 Flask 應用程式 Docker 化，並部署至 AWS、GCP 或 Render 等雲端平台，實現真正的線上無障礙溝通服務。
 
 ---
 
@@ -116,13 +124,13 @@ Sign-Language-Recognition/
 │   ├── css/style.css                # 網頁樣式檔
 │   └── js/event.js                  # Ajax 非同步請求邏輯
 │
-├── img/                             # README 展示用圖片
+├── Img/                             # README 展示用圖片
 │   ├── architecture.png
 │   ├── ui_demo.png
 │   └── dataset.png
 │
 ├── requirements.txt                 # 環境依賴套件清單
-├── Presentation.pdf     # 專題簡報檔案
+├── Sign_Langusge_期末_(1)_2.pdf     # 專題簡報檔案
 └── README.md
 ```
 
