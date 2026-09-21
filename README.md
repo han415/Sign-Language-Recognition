@@ -38,7 +38,7 @@
 *(實機操作介面截圖)*
 ![網頁介面展示](./img/ui_demo.png)
 
-### [專題完整簡報 (Presentation PDF)](./Sign_Langusge_期末_(1)_2.pdf)
+### [專題完整簡報 (Presentation PDF)](./Presentation.pdf)
 
 ---
 
