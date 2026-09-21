@@ -23,22 +23,22 @@
 
 *(註：因模型權重檔超出 GitHub 容量限制，已將兩個核心模型分別開源發布至 Hugging Face Model Hub。)*
 
-👉 **[🔗 CNN 手語辨識模型 (categorical_model.h5) - Hugging Face](https://huggingface.co/你的帳號名稱/Sign-Language-Models)**
-👉 **[🔗 BERT 正負評語言模型 (bert_chinese_model) - Hugging Face](https://huggingface.co/你的帳號名稱/Sign-Language-Models)**
+**[CNN 手語辨識模型 (categorical_model.h5) - Hugging Face](https://huggingface.co/你的帳號名稱/Sign-Language-Models)**
+**[BERT 正負評語言模型 (bert_chinese_model) - Hugging Face](https://huggingface.co/你的帳號名稱/Sign-Language-Models)**
 
 ---
 
 ## 專題成果展示
 
-### 🎥 網頁實機操作與系統演示 (YouTube)
+### 網頁實機操作與系統演示 (YouTube)
 點擊下方圖片即可觀看完整的系統操作影片，包含手語圖片上傳、即時辨識、翻譯與情緒分析結果展示：
 
-[![Web UI Demo Video](https://img.youtube.com/vi/YOUR_VIDEO_ID/0.jpg)](https://www.youtube.com/watch?v=YOUR_VIDEO_ID)
+[![Web UI Demo Video](https://img.youtube.com/vi/jHTMCEvQBkA/0.jpg)](https://youtu.be/jHTMCEvQBkA)
 
 *(實機操作介面截圖)*
-![網頁介面展示](./Img/ui_demo.png)
+![網頁介面展示](./img/ui_demo.png)
 
-### 📄 [專題完整簡報 (Presentation PDF)](./Sign_Langusge_期末_(1)_2.pdf)
+### [專題完整簡報 (Presentation PDF)](./Sign_Langusge_期末_(1)_2.pdf)
 
 ---
 
@@ -52,7 +52,7 @@
 
 本系統將前端介面、影像辨識模型與語言分析模型進行無縫整合：
 
-![系統流程架構圖](./Img/architecture.png)
+![系統流程架構圖](./img/architecture.png)
 
 1. **使用者上傳檔案**：透過 Web 介面選擇手語圖片。
 2. **調用影像模型**：後端 Flask 接收影像後，送入訓練好的 CNN 模型進行特徵萃取與類別預測。
@@ -72,7 +72,7 @@
 * **模型架構**：建立深度卷積神經網路 (CNN)，包含兩層 `Conv2D` + `MaxPooling2D`，並使用 `Dropout` 防止過擬合。最終全連接層使用 Softmax 輸出 36 種機率分佈。
 * **測試準確率**：經過 300 Epochs 訓練，最終模型 (`categorical_model.h5`) 準確率高達 **92.8%**。
 
-![手語資料集示意圖](./Img/dataset.png)
+![手語資料集示意圖](./img/dataset.png)
 
 ### 2. 自然語言處理：正負評分類模型 (BERT)
 * **資料收集與前處理**：利用 Selenium 撰寫自動化爬蟲，擷取 2098 則真實評論資料進行訓練，並建立正向 (`positive.txt`) 與負向 (`negative.txt`) 語意字典檔。
